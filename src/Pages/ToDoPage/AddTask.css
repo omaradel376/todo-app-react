@@ -1,0 +1,92 @@
+.add-task-page {
+  margin-top: 50px;
+}
+.input-group label {
+  display: block;
+  padding-bottom: 5px;
+  color: #777;
+  font-weight: bold;
+}
+.input-group input {
+  padding: 5px;
+}
+.group-add-task,.group-add-category {
+  width: 95%;
+  margin: auto;
+}
+.input-add-category {
+  margin-top: 10px;
+}
+.group-add-task input,.group-add-category input {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+}
+.input-date-start,
+.input-date-end {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+.state-of-task {
+  margin: auto;
+  width: 50%;
+  margin-top: 20px;
+}
+.state-of-task select {
+  display: block;
+  margin: auto;
+  width: 100%;
+  background-color: #f4a261;
+  padding: 10px;
+  border-radius: 2000px;
+  font-size: 18px;
+  border: none;
+  border: 2px solid #f4a261;
+  outline: none;
+}
+button.btn-add-task {
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  padding: 7px 30px;
+  border: none;
+  outline: none;
+  border-radius: 2000px;
+  color: white;
+  background-color: #2a9d8f;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #228378;
+  }
+}
+.add-task-page a.return-home {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #777;
+  padding: 7px 10px;
+  border-radius: 20000px;
+  color: #ddd;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #666;
+  }
+}
+.error-length-of-task {
+  color: #c32f27;
+  text-align: center;
+  margin: 0;
+  text-transform: capitalize;
+  
+}

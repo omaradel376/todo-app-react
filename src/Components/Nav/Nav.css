@@ -1,0 +1,16 @@
+header {
+  padding: 5px;
+  background-color: #023047;
+}
+header .logo {
+  color: #61dbfb;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
