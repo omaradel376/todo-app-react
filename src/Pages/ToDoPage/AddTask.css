@@ -1,5 +1,6 @@
 .add-task-page {
   margin-top: 50px;
+  position: relative;
 }
 .input-group label {
   display: block;
@@ -78,6 +79,7 @@ button.btn-add-task {
   border-radius: 20000px;
   color: #ddd;
   transition: 0.3s;
+  text-align: center;
 
   &:hover {
     background-color: #666;
@@ -86,7 +88,25 @@ button.btn-add-task {
 .error-length-of-task {
   color: #c32f27;
   text-align: center;
+  font-weight: bold;
   margin: 0;
   text-transform: capitalize;
   
+}
+.is-task-added {
+  position: absolute;
+  top: -50px;
+  margin: 0;
+  background-color: #00FF00;
+  border-radius: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  text-transform: capitalize;
+  padding:  0 10px;
+  transition: .4s;
+  z-index: 100;
+}
+.is-task-added.hidden {
+  transform: translateY(-100%);
 }

@@ -1,0 +1,33 @@
+h1.no-edit-task {
+  margin-top: 60px;
+}
+.no-edit-task {
+  text-align: center;
+  text-transform: capitalize;
+  display: block;
+  color: #777;
+  text-decoration: none;
+  span {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+.save-edit {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  background-color: #138808;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import "./AddTask.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../../Data/slices/ToDoSlice";
 import { increaseId } from "../../Data/slices/IdSlice";
+import Swal from "sweetalert2";
 
 function ToDoPage() {
   let id = useSelector((state) => state.ID);
+
+  let param = useParams();
+  console.log(param.id);
+  console.log(localStorage.getItem("category"));
 
   // Set date of current day to set it as a default value in date input
   const date = new Date();
@@ -15,9 +20,8 @@ function ToDoPage() {
   const day = date.getDate().toString().length === 2 ? `${date.getDate()}` : `0${date.getDate()}`;
 
   // set states for inputs values
-  const [lengthOfText, setLengthOfText] = useState(true);
   const [textOfInput, setTextOfInput] = useState("");
-  const [category, setCategory] = useState("non");
+  const [category, setCategory] = useState("none");
   const [stateOfTask, setStateOfTask] = useState("normal");
   const [timeStart, setTimeStart] = useState("not set");
   const [dateStart, setDateStart] = useState(`${year}-${month}-${day}`);
@@ -26,10 +30,28 @@ function ToDoPage() {
   // this is a global state for task data
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+    if (param.id === localStorage.getItem("category")) {
+      setCategory(param.id);
+    }
+  }, []);
+
+  // alert when task is add
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
   return (
     <div className="add-task-page">
-      {/* show error when length of text task when text.length < 2 */}
-      {lengthOfText ? "" : <p className="error-length-of-task">task text must be upper than two letters</p>}
       <div className="input-add-task">
         <div className="input-group group-add-task">
           <label htmlFor="input-task">Type Task</label>
@@ -40,7 +62,7 @@ function ToDoPage() {
       <div className="input-add-category">
         <div className="input-group group-add-category">
           <label htmlFor="input-category">Type Category</label>
-          <input onChange={(event) => setCategory(event.target.value.toLowerCase().trim())} id="input-category" type="text" placeholder="Type Your Category" />
+          <input defaultValue={param.id === localStorage.getItem("category") ? param.id : ""} onChange={(event) => setCategory(event.target.value.toLowerCase().trim())} id="input-category" type="text" placeholder="Type Your Category" />
         </div>
       </div>
 
@@ -94,11 +116,26 @@ function ToDoPage() {
                 done: false,
               })
             );
-            setLengthOfText(true);
-            // console.log(state);
+            // setLengthOfText(true);
             dispatch(increaseId());
+
+            // fire the alert when task added
+            Toast.fire({
+              icon: "success",
+              title: "Task Added",
+            });
+
+            // setIsAdded(true);
+            // setTimeout(() => {
+            //   setIsAdded(false);
+            // }, 1000);
           } else {
-            setLengthOfText(false);
+            // setLengthOfText(false);
+            // when task text < 3 letters fire alert error
+            Toast.fire({
+              icon: "error",
+              title: "Task Letters Must Be > 2 Letters",
+            });
           }
         }}
         className="btn-add-task"

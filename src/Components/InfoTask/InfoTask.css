@@ -1,34 +1,112 @@
 .task-info-boxs {
   padding: 10px;
-  background-color: #999;
+  background-color: #2a2725;
   width: 100%;
   border-radius: 10px;
+  text-transform: capitalize;
 }
 .infoTask {
   display: grid;
   gap: 5px;
-
-  .task-text {
-    font-weight: bold;
-    text-align: center;
+  background-color: #353535;
+  width: clamp(250px, 95% , 1000px);
+  padding: 10px;
+  border-radius: 10px;
+  transition: 1s !important;
+  transition-timing-function: ease-out;
+  position: relative;
+  color: #fff;
+  height: 90vh;
+  overflow: auto;
+}
+.infoTask.remove {
+  transform: translateY(-200%);
+}
+.infoTask .task-text {
+  position: relative;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+  max-height: 200px;
+  
+  p {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .task-category {
-    font-weight: bold;
-    text-align: center;
+}
+.infoTask .task-category {
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+  max-height: 200px;
+  p {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .date-task,.time-task {
-    display: flex;
-    justify-content: space-around;
-    @media (max-width: 767px) {
-      & {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
+}
+.infoTask .date-task,
+.infoTask .time-task {
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: 767px) {
+  .infoTask .date-task,
+  .infoTask .time-task {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .state-task {
-    text-align: center;
-    font-weight: bold;
-  }
+}
+.infoTask .state-task {
+  text-align: center;
+  font-weight: bold;
+}
+.infoTask .action-task-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.infoTask .action-task-info button {
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+}
+.infoTask .action-task-info button.delete {
+  background-color: #b31b1b;
+  color: white;
+  transition: 0.3s;
+}
+.infoTask .action-task-info button.delete:hover {
+  background-color: #960018;
+}
+.infoTask .action-task-info button.edit {
+  background-color: #ffbf00;
+  transition: 0.3s;
+}
+.infoTask .action-task-info button.edit:hover {
+  background-color: #ef9b0f;
+}
+.infoTask .action-task-info button.close {
+  width: 100%;
+  background-color: #e5e4e2;
+  transition: 0.3s;
+}
+.infoTask .action-task-info button.close:hover {
+  background-color: #bebfc5;
 }

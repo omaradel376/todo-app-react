@@ -9,6 +9,7 @@ import Home from "./Pages/Home/Home";
 import ToDoPage from "./Pages/ToDoPage/AddTask";
 import { Provider } from "react-redux";
 import { sotre } from "./Data/store";
+import EditTask from "./Pages/edit/EditTask";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +21,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/add-task",
+        path: "/add-task/:id",
         element: <ToDoPage />,
+      },
+      {
+        path: "/edit-task",
+        element: <EditTask />,
       },
     ],
   },

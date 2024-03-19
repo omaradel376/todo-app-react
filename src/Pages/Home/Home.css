@@ -35,26 +35,81 @@
 .box-category {
   background-color: #273e47;
   padding: 5px;
+  position: relative;
   display: grid;
   gap: 10px;
-  h2 {
-    color: white;
-    text-transform: capitalize;
-  }
-  .text-of-task {
-    background-color: #264653;
-    padding: 5px;
-    color: #e76f51;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    span {
-      margin-right: 10px;
-      color: #e9c46a;
-      font-weight: bold;
-    }
-  }
+}
+.box-category .setting-of-box {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 5px;
+  transition: 0.3s;
+  color: white;
+  cursor: pointer;
+}
+.box-category .setting-of-box:hover {
+  background-color: #ffffff31;
+}
+.box-category .delete-cat {
+  display: block;
+  background-color: #ffffff31;
+  border-radius: 5px;
+  position: absolute;
+  padding: 5px 5px;
+  right: 35px;
+  top: 5px;
+}
+.box-category .delete-cat.not-active {
+  display: none;
+}
+.box-category .delete-cat ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.box-category .delete-cat ul li button {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.box-category h2 {
+  color: white;
+  text-transform: capitalize;
+  max-width: 100% !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 5px;
+}
+.box-category .text-of-task {
+  background-color: #264653;
+  max-width: 100% !important;
+  overflow: hidden;
+  padding: 5px;
+  color: #e76f51;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box-category .text-of-task p {
+  max-width: 100% !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 5px;
+}
+.box-category .text-of-task span {
+  margin-right: 10px;
+  color: #e9c46a;
+  font-weight: bold;
 }
 .liner {
   width: 100%;
@@ -67,7 +122,6 @@
   border-radius: 20000px;
   overflow: hidden;
 }
-
 .isCatComplete {
   margin: 0;
   padding: 0;
@@ -78,70 +132,50 @@
   font-weight: bold;
   width: fit-content;
   border-radius: 5px;
-  &.false {
-    background-color: #f94144;
-  }
-  &.true {
-    background-color: #2a9d8f;
-  }
+}
+.isCatComplete.false {
+  background-color: #f94144;
+}
+.isCatComplete.true {
+  background-color: #2a9d8f;
 }
 .actions-tasks {
   display: flex;
   align-items: center;
   gap: 20px;
-  a {
-    color: #f94144;
-  }
-  svg {
-    cursor: pointer;
-    transition: .3s;
-    padding: 5px;
-    font-size: 20px;
-    &:hover {
-      transform: rotate(40deg);
-    }
-  }
+}
+.actions-tasks a {
+  color: #f94144;
+}
+.actions-tasks svg {
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px;
+  font-size: 20px;
+}
+.actions-tasks svg:hover {
+  transform: rotate(40deg);
 }
 .info-task-container {
   position: fixed;
-  width: 90%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  background-color: #777;
-  padding: 5px;
-  z-index: 10000;
+  transform: translate(-50%, -50%);
+  background-color: #0000005e ;
+  z-index: 300;
   border-radius: 10px;
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.info-task-container.remove {
+  opacity: 0;
+}
 /* #todo check box from UiVerse */
-
 /* Hide the default checkbox */
 .container input {
   position: absolute;
@@ -150,7 +184,6 @@
   height: 0;
   width: 0;
 }
-
 .container {
   display: block;
   position: relative;
@@ -158,7 +191,6 @@
   font-size: 1.5rem;
   user-select: none;
 }
-
 /* Create a custom checkbox */
 .checkmark {
   --clr: #0b6e4f;
@@ -171,26 +203,22 @@
   border-radius: 50%;
   transition: 300ms;
 }
-
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: var(--clr);
   border-radius: 0.5rem;
   animation: pulse 500ms ease-in-out;
 }
-
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
-
 /* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 0.45em;
@@ -201,23 +229,30 @@
   border-width: 0 0.15em 0.15em 0;
   transform: rotate(45deg);
 }
-
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 #0b6e4f90;
+    box-shadow: 0 0 0 #0b6e4f 90;
     rotate: 20deg;
-  }
-
+ }
   50% {
     rotate: -20deg;
-  }
-
+ }
   75% {
-    box-shadow: 0 0 0 10px #0b6e4f60;
-  }
-
+    box-shadow: 0 0 0 10px #0b6e4f 60;
+ }
   100% {
-    box-shadow: 0 0 0 13px #0b6e4f30;
+    box-shadow: 0 0 0 13px #0b6e4f 30;
     rotate: 0;
-  }
+ }
+}
+
+.plus-icon-category {
+  color: white;
+  background-color: #77777762;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto ;
 }
