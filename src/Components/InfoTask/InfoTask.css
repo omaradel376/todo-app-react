@@ -9,7 +9,7 @@
   display: grid;
   gap: 5px;
   background-color: #353535;
-  width: clamp(250px, 95% , 1000px);
+  width: clamp(250px, 95%, 1000px);
   padding: 10px;
   border-radius: 10px;
   transition: 1s !important;
@@ -30,13 +30,12 @@
   max-width: 100%;
   overflow: auto;
   max-height: 200px;
-  
-  p {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+}
+.infoTask .task-text p {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .infoTask .task-category {
   font-weight: bold;
@@ -45,25 +44,23 @@
   max-width: 100%;
   overflow: auto;
   max-height: 200px;
-  p {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 }
-.infoTask .date-task,
-.infoTask .time-task {
+.infoTask .task-category p {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.infoTask .date-task, .infoTask .time-task {
   display: flex;
   justify-content: space-around;
 }
 @media (max-width: 767px) {
-  .infoTask .date-task,
-  .infoTask .time-task {
+  .infoTask .date-task, .infoTask .time-task {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+ }
 }
 .infoTask .state-task {
   text-align: center;

@@ -127,10 +127,16 @@ function Home() {
                     </div>
                   );
                 })}
-              
-                <Link to={`/add-task/${task.category}`}><FontAwesomeIcon onClick={() => {
-                  localStorage.setItem("category", task.category)
-                }} className="plus-icon-category" icon={faPlus} /></Link>
+
+                <Link to={`/add-task/${task.category}`}>
+                  <FontAwesomeIcon
+                    onClick={() => {
+                      localStorage.setItem("category", task.category);
+                    }}
+                    className="plus-icon-category"
+                    icon={faPlus}
+                  />
+                </Link>
               </div>
             );
           })}

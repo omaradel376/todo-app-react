@@ -11,14 +11,16 @@
 .input-group input {
   padding: 5px;
 }
-.group-add-task,.group-add-category {
+.group-add-task,
+.group-add-category {
   width: 95%;
   margin: auto;
 }
 .input-add-category {
   margin-top: 10px;
 }
-.group-add-task input,.group-add-category input {
+.group-add-task input,
+.group-add-category input {
   width: 100%;
   display: block;
   padding: 10px;
@@ -61,12 +63,12 @@ button.btn-add-task {
   font-size: 20px;
   cursor: pointer;
   transition: 0.3s;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background-color: #228378;
-  }
+}
+button.btn-add-task:focus {
+  outline: none;
+}
+button.btn-add-task:hover {
+  background-color: #228378;
 }
 .add-task-page a.return-home {
   display: block;
@@ -80,33 +82,7 @@ button.btn-add-task {
   color: #ddd;
   transition: 0.3s;
   text-align: center;
-
-  &:hover {
-    background-color: #666;
-  }
 }
-.error-length-of-task {
-  color: #c32f27;
-  text-align: center;
-  font-weight: bold;
-  margin: 0;
-  text-transform: capitalize;
-  
-}
-.is-task-added {
-  position: absolute;
-  top: -50px;
-  margin: 0;
-  background-color: #00FF00;
-  border-radius: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  text-transform: capitalize;
-  padding:  0 10px;
-  transition: .4s;
-  z-index: 100;
-}
-.is-task-added.hidden {
-  transform: translateY(-100%);
+.add-task-page a.return-home:hover {
+  background-color: #666;
 }

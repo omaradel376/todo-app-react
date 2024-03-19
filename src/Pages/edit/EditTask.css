@@ -7,11 +7,11 @@ h1.no-edit-task {
   display: block;
   color: #777;
   text-decoration: none;
-  span {
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 18px;
-  }
+}
+.no-edit-task span {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 18px;
 }
 .save-edit {
   display: block;
@@ -29,5 +29,4 @@ h1.no-edit-task {
   letter-spacing: 2px;
   border-radius: 5px;
   cursor: pointer;
-  
 }

@@ -21,16 +21,16 @@ nav {
   width: fit-content;
   margin: 10px auto;
   gap: 20px;
-  a {
-    color: #ffffff;
-    font-weight: bold;
-    display: block;
-    padding: 3px 5px;
-    border-radius: 4px;
-    transition: 0.3s;
-    &.active {
-      background-color: #0b4725;
-      box-shadow: 0px 0px 6px 0px #4caf50;
-    }
-  }
+}
+nav a {
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  padding: 3px 5px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+nav a.active {
+  background-color: #0b4725;
+  box-shadow: 0px 0px 6px 0px #4caf50;
 }

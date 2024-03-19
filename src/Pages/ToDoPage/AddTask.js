@@ -10,8 +10,6 @@ function ToDoPage() {
   let id = useSelector((state) => state.ID);
 
   let param = useParams();
-  console.log(param.id);
-  console.log(localStorage.getItem("category"));
 
   // Set date of current day to set it as a default value in date input
   const date = new Date();
@@ -116,7 +114,6 @@ function ToDoPage() {
                 done: false,
               })
             );
-            // setLengthOfText(true);
             dispatch(increaseId());
 
             // fire the alert when task added
@@ -125,12 +122,8 @@ function ToDoPage() {
               title: "Task Added",
             });
 
-            // setIsAdded(true);
-            // setTimeout(() => {
-            //   setIsAdded(false);
-            // }, 1000);
+
           } else {
-            // setLengthOfText(false);
             // when task text < 3 letters fire alert error
             Toast.fire({
               icon: "error",
